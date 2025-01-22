@@ -9,16 +9,16 @@
   --text-color: #f1b2ce;
   --decoration-color: var(--accent-color);
   --background-color: #000028;
-  --header1-color: #db00ff;
-  --header2-color: var(--accent-color);
-  --header3-color: var(--background-color);
+  --color-header: #db00ff;
+  --color-title: var(--accent-color);
+  --color-content: var(--background-color);
   --font-family: "IBM Plex mono", monospace;
   --regular-font-size: 18px;
   --small-line-height: 83%;
   --regular-line-height: 100%;
   --large-line-height: 130%;
   --bold-font-weight: 700;
-  --regular-font-weight: 400;
+  --regular-font-weight: 400; rgba(219, 0, 255)
   --font-style: normal;
   --is-light: visible;
 }

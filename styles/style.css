@@ -4,6 +4,10 @@
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   font-family: var(--font-family);
   background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .decorated-zone::before {
@@ -15,6 +19,8 @@
   block-size: 25px;
   border-block-start: 1px solid var(--decoration-color);
   border-inline-end: 1px solid var(--decoration-color);
+  top: 0; 
+  right: 0; 
 }
 
 .decorated-zone::after {
@@ -34,6 +40,15 @@
 }
 
 .text-link:focus-visible {
+  outline: 1px solid var(--text-color);
+  outline-offset: -1px;
+}
+
+.text-link:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.text-link:focus {
   outline: none;
 }
 
@@ -41,11 +56,8 @@
 
 .header {
   height: 100vh;
+  min-height: 668px;
   padding: 10px;
-  background-image: var(--background-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   grid-template-columns: repeat(2, 1fr);
@@ -77,7 +89,7 @@
   margin-inline-end: 9px;
   background-color: var(--accent-color);
   border-radius: 50%;
-  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  box-shadow: 0px 0px 4px 2px rgba(255, 0, 112, 1);
 }
 
 .header__theme-menu {
@@ -101,6 +113,20 @@
   cursor: pointer;
 }
 
+.header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
+  border: 1px solid var(--accent-color-opacity);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--decoration-color);
+}
+
 .header__theme-menu-button_active {
   pointer-events: none;
   border: 1px solid var(--decoration-color);
@@ -109,7 +135,7 @@
 .header__title {
   grid-column: 1 / 3;
   justify-self: start;
-  color: var(--header1-color);
+  color: var(--color-header);
   text-shadow: 4px 4px 0 var(--accent-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: var(--small-line-height);
@@ -118,7 +144,9 @@
 .header__text {
   grid-column: 1 / 3;
   justify-content: end;
-  display: inline-block;
+  display: flex;
+  justify-content:center;
+  align-items:center;
 }
 
 /* MAIN STYLES */
@@ -141,7 +169,7 @@
 
 .topic__title {
   grid-column: 1 / 4;
-  color: var(--header2-color);
+  color: var(--color-title);
   font-size: var(--regular-font-size);
   font-weight: var(--bold-font-weight);
   line-height: var(--large-line-height);
@@ -157,7 +185,7 @@
 
 .title_decor {
   grid-column: 1 / 4;
-  color: var(--header3-color);
+  color: var(--color-content);
   background-color: var(--accent-color);
   font-size: var(--regular-font-size);
   font-weight: var(--bold-font-weight);
@@ -177,12 +205,16 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: column;
   gap: 10px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .topic__image {
   grid-column: 1 / 4;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .thin-title {
@@ -192,6 +224,8 @@
 /* FOOTER STYLES */
 
 .footer {
+  height: 100vh;
+  min-height: 668px;
   padding: 10px;
   block-size: 100vh;
   display: grid;
@@ -200,7 +234,7 @@
 .footer__title {
   justify-self: center;
   align-self: center;
-  color: var(--header1-color);
+  color: var(--color-header);
   text-shadow: 2px 2px 0 var(--accent-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: var(--title-line-height);
@@ -240,7 +274,7 @@
     grid-column: 2 / 3;
   }
 
-  .topic:nth-child(2) .topic__card {
+  .topic__card__highlighted .topic__card {
     grid-column: 1 / 4;
   }
 
@@ -252,54 +286,36 @@
     gap: 20px;
   }
 
-  .topic__image {
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .topic__image:nth-child(2) {
+  .topic__image__sunset {
     grid-column: 1 / 3;
   }
-
-  .topic__image:nth-child(3) {
+  
+  .topic__image__ice {
     grid-column: 3 / 4;
     grid-row: 2 / 4;
   }
-
-  .topic__image:nth-child(4) {
+  
+  .topic__image__tape {
     grid-column: 1 / 2;
     grid-row: 3 / 5;
   }
-
-  .topic__image:nth-child(5) {
+  
+  .topic__image__books {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
   }
-
-  .topic__image:nth-child(6) {
+  
+  .topic__image__street {
     grid-column: 2 / 4;
     grid-row: 4 / 5;
   }
-
+  
   .footer {
     padding: 20px;
   }
 }
 
 @media (width >= 1024px) {
-  .text-link:hover {
-    border-bottom: 1px solid var(--text-color);
-  }
-
-  .text-link:focus {
-    outline: none;
-  }
-
-  .text-link:focus-visible {
-    outline: 1px solid var(--text-color);
-    outline-offset: -1px;
-  }
-
   .header__theme-menu {
     align-self: start;
     justify-self: center;
@@ -307,20 +323,6 @@
 
   .header__theme-menu-list {
     grid-auto-flow: column;
-  }
-
-  .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
-    border: 1px solid var(--accent-color-opacity);
-  }
-
-  .header__theme-menu-button:focus {
-    outline: none;
-  }
-
-  .header__theme-menu-button:focus-visible {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid var(--decoration-color);
   }
 
   .header__title {
@@ -335,16 +337,16 @@
     grid-column: 2 / 4;
   }
 
-  .topic:nth-child(2) {
+  .topic__card__highlighted {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
   }
 
-  .topic:nth-child(2) .topic__title {
+  .topic__card__highlighted .topic__title {
     grid-row: span 1;
   }
 
-  .topic:nth-child(2) .topic__card {
+  .topic__card__highlighted .topic__card {
     grid-row: 2 / 3;
     grid-column: span 1;
   }
@@ -355,5 +357,17 @@
 
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .header__title {
+    color: var(--heading-text);
+    text-shadow: 4px 4px 0px var(--accent-color);
+  }
+
+  .footer__title {
+    color: var(--heading-text);
+    text-shadow: 2px 2px 0px var(--accent-color);
   }
 }

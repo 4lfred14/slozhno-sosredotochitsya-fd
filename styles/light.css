@@ -15,44 +15,25 @@
   --text-color: #353430;
   --decoration-color: var(--text-color);
   --background-color: #fff1f7;
-  --header1-color: #ffc2e6;
-  --header2-color: var(--text-color);
-  --header3-color: var(--text-color);
+  --color-header: #ffc2e6;
+  --color-title: var(--text-color);
+  --color-content: var(--text-color);
   --is-light: hidden;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
-  --accent-color: #ff8dcb;
-  --bg-color: #fff1f7;
-  --subtitle-color: #353430;
-  --text-color: #353430;
-  --section-title-color: #353430;
-  --article-title-color: #353430;
-  --border-color: #353430;
-  --border-bottom: #353430;
-  --section-article-text: #353430;
-  --heading-text: #ffc2e6;
-  --bg-image: url(../images/cover-image-light.png);
-  --secondary-color: var(--color-black, #35343040);
-  .page {
-    background-image: var(--bg-image);
-    background-color: #fff1f7;
-  }
-
-  .decor {
-    display: none;
-  }
-
-  @media (min-width: 320px) and (max-width: 768px) {
-    .header__title {
-      color: var(--heading-text);
-      text-shadow: 4px 4px 0px var(--accent-color);
-    }
-
-    .footer__title {
-      color: var(--heading-text);
-      text-shadow: 2px 2px 0px var(--accent-color);
-    }
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-image: url("../images/cover-image-light.png");
+    --accent-color: #ff8dcb;
+    --accent-color-opacity: #32312d66;
+    --text-color: #353430;
+    --decoration-color: var(--text-color);
+    --background-color: #fff1f7;
+    --color-header: #ffc2e6;
+    --color-title: var(--text-color);
+    --color-content: var(--text-color);
+    --is-light: hidden;
   }
 }
+
+
