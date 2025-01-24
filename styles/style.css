@@ -82,6 +82,8 @@
   line-height: 25px;
   padding: 0;
   margin: 0;
+  top: 20;
+  right: 29;
 }
 
 .header__decoration-dark::after {
