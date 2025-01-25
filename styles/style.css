@@ -164,7 +164,7 @@
   margin-block: 40px;
   padding-inline: 10px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill);
   grid-auto-flow: column;
   row-gap: 50px;
 }
@@ -374,7 +374,7 @@
 
 @media (min-width: 320px) and (max-width: 768px) {
   .header__title {
-    color: var(--heading-text);
+    color: var(--color-header);
     text-shadow: 4px 4px 0px var(--accent-color);
   }
 
